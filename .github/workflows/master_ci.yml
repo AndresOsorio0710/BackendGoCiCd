@@ -1,0 +1,30 @@
+name: CI - Build and Test (Solo rama dev)
+
+on:
+  push:
+    branches: [master] # solo cuando se haga push a master
+  pull_request:
+    branches: [master] # solo cuando se cree o actualice un PR hacia master
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.2" # o tu versión real de Go
+
+      - name: Verificar dependencias
+        run: go mod tidy && go mod verify
+
+      - name: Compilar
+        run: go build ./...
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
