@@ -1,0 +1,4 @@
+**/postgres/db
+appsettings.*.json
+.vscode
+__debug_bin*
