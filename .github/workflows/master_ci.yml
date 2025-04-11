@@ -1,4 +1,4 @@
-name: CI - Build and Test (Solo rama dev)
+name: CI - Build and Test (Solo rama master)
 
 on:
   push:
